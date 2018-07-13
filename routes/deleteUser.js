@@ -1,21 +1,20 @@
 var express = require('express');
 var router = express.Router();
 var userService = require('../service/user-service');
-/* GET users listing. */
-router.get('/', function(req, res, next) {
-    res.render('login');
-});
 
+
+router.get('/' , function(req , res ,next){
+  res.render('delete');
+});
 
 router.post('/' , function(req ,res , next){
 
   console.log(req.body);
-   userService.findUser(req.body.email,function(err,user){
+   userService.deletingUser(req.body.email,function(err){
     if(err){
-         return res.redirect('/');
+         return res.redirect('/create');
        }else{
-         console.log(user);
-         console.log('object Logged !');
+         console.log('object deleted !');
          return res.redirect('/');
        }
  });

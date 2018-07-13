@@ -20,6 +20,41 @@ exports.addingUser = function (user1 , next){
  });
 console.log('added successfully');
 };
+
+exports.deletingUser = function(email,next){
+  myUser.findOneAndRemove({email:email.toLowerCase()},function(err,user){
+    if(err) {console.log(err);
+      return next(err);
+    }
+    next(null);
+  })
+};
+
+exports.updateUser = function (data,next){
+  myUser.findOneAndUpdate(
+    {email:data.email.toLowerCase()}
+    ,{$set: {
+    firstName:data.firstName,
+    password:data.password,
+    moonNumber:Number(data.moonNumber)
+  }},
+
+      {upsert:true}, function(err,user){
+                            if(err){
+                              console.log(err);
+                              return next(err);
+                            }
+                            next(null);
+                          })
+}
+
+
+
+
+
+
+
+
 exports.findUser = function(email , next) {
   myUser.findOne({email:email.toLowerCase()} , function(err , user){
   next(err , user);
