@@ -11,6 +11,7 @@ var sending = require('./routes/sending');
 var login = require('./routes/login');
 var deletion = require('./routes/deleteUser');
 var update = require('./routes/updateUser');
+var sort = require('./routes/sort');
 
 mongoose.connect(config.mongoUri);
 
@@ -33,7 +34,7 @@ app.use('/sending' , sending);
 app.use('/login' , login);
 app.use('/delete' ,deletion);
 app.use('/update',update);
-
+app.use('/sort',sort);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

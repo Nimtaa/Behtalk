@@ -53,7 +53,16 @@ exports.updateUser = function (data,next){
 
 
 
-
+exports.sort = function(next){
+  myUser.find({}).sort({moonNumber:'ascending'}).exec(function(err,user){
+    if(err){
+      console.log(err);
+      next(err);
+    }
+    console.log(user);
+    next(user);
+  })
+}
 
 exports.findUser = function(email , next) {
   myUser.findOne({email:email.toLowerCase()} , function(err , user){
