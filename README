@@ -1,11 +1,12 @@
-BehTalk is a message sending service.
+BehTalk is a practice project for working with Node.js, Mongodb and Express framework.
 
-new users can  create account in /create route , and saving their data s in mongo database.
-then they can log in and send their message to specified user with email .
-in /sending route.
+New users can  create account in /create route , and saving their data's in mongo database.
+they can log in and send their message in /sending route to specified user by email.
 The app (server) listening on port 4000.
--------------------------------------------------------------
+
 localhost:4000
 localhost:4000/create
 localhost:4000/login
 localhost:4000/sending
+localhost:4000/delete
+localhost:4000/update
