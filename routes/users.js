@@ -10,7 +10,7 @@ router.get('/', function(req, res, next) {
 router.post('/' , function(req ,res , next){
 
   console.log(req.body);
-   userService.findUser(req.body.email,function(err,user){
+   userService.findingAll(function(err,user){
     if(err){
          return res.redirect('/');
        }else{

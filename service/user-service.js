@@ -23,7 +23,8 @@ console.log('added successfully');
 
 exports.deletingUser = function(email,next){
   myUser.findOneAndRemove({email:email.toLowerCase()},function(err,user){
-    if(err) {console.log(err);
+    if(err) {
+      console.log(err);
       return next(err);
     }
     next(null);
@@ -49,8 +50,16 @@ exports.updateUser = function (data,next){
 }
 
 
-
-
+exports.findingAll = function(next){
+  myUser.find({},function(err,user){
+    if(err){
+      console.log(err);
+      next(err);
+    }
+    console.log(user);
+    next(user);
+  })
+}
 
 
 exports.sort = function(next){
